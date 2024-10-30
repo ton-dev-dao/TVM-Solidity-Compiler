@@ -576,7 +576,7 @@ checksum = "8e9489c2807c139ffd9c1794f4af0ebe86a828db53ecdc7fea2111d0fed085d1"
 [[package]]
 name = "lockfree"
 version = "0.5.2"
-source = "git+https://github.com/ton-dev-dao/lockfree.git#2a30df72944ed48255a97defcd387dd4962f3dd5"
+source = "git+https://github.com/ton-dev-dao/lockfree.git#a9d1811cc234f92a404aa5d166e45f13ff8d5578"
 dependencies = [
  "owned-alloc",
 ]
@@ -1022,7 +1022,7 @@ dependencies = [
 [[package]]
 name = "ton_dev_abi"
 version = "2.7.11"
-source = "git+https://github.com/ton-dev-dao/ton-dev-abi.git?tag=2.7.11#22c7b3259059c6e937f0c248d389cb6f0f111c48"
+source = "git+https://github.com/ton-dev-dao/ton-dev-abi.git?tag=2.7.11#9f11b04cdc9807a564ca7f4de0c8cd90f82a77c4"
 dependencies = [
  "anyhow",
  "byteorder",
@@ -1040,7 +1040,7 @@ dependencies = [
 [[package]]
 name = "ton_dev_assembler"
 version = "1.8.0"
-source = "git+https://github.com/ton-dev-dao/ton-dev-assembler.git?tag=1.8.0#e71590e10151e4377fcc643a435e4ef46a16c079"
+source = "git+https://github.com/ton-dev-dao/ton-dev-assembler.git?tag=1.8.0#d614603b975e1020d10586aac867dc9804a63801"
 dependencies = [
  "anyhow",
  "clap",
@@ -1058,7 +1058,7 @@ dependencies = [
 [[package]]
 name = "ton_dev_block"
 version = "1.11.20"
-source = "git+https://github.com/ton-dev-dao/ton-dev-block.git?tag=1.11.20#ccfd1dd67660240d7526eb380e3951dc0f9d1da0"
+source = "git+https://github.com/ton-dev-dao/ton-dev-block.git?tag=1.11.20#0a7d270183062a09a69a408cf826c980456f807a"
 dependencies = [
  "aes-ctr",
  "anyhow",
@@ -1088,7 +1088,7 @@ dependencies = [
 [[package]]
 name = "ton_dev_vm"
 version = "2.2.21"
-source = "git+https://github.com/ton-dev-dao/ton-dev-vm.git?tag=2.2.21#abcb48463a3e2ca07630ca3f8b3283224e63abe7"
+source = "git+https://github.com/ton-dev-dao/ton-dev-vm.git?tag=2.2.21#d69b7c9f1ed6591fe353eac5ca42468377ef972b"
 dependencies = [
  "anyhow",
  "hex 0.4.3",
