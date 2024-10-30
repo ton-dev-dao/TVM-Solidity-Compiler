@@ -52,7 +52,7 @@ cmake --build . --config Release -- /m
 
 ## Links
 
- * [Assembler and disassembler](https://github.com/ton-dev-dao/ever-assembler)
+ * [Assembler and disassembler](https://github.com/ton-dev-dao/ton-dev-assembler)
  * [Code samples](https://github.com/ton-dev-dao/samples/tree/main) in TVM Solidity
  * [Changelog](./Changelog.md)
 

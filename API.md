@@ -5845,7 +5845,7 @@ Returns gas consumed by VM so far (including this instruction). Required: `--tvm
 ### TVM capabilities
 
 Rust implementation of TVM has capabilities. Capabilities are flags that can be set to turn on 
-some features or behavior of TVM. Full list of capabilities can be found in `enum GlobalCapabilities` in [ever-block](https://github.com/ton-dev-dao/ever-block/blob/master/src/config_params.rs) repo.
+some features or behavior of TVM. Full list of capabilities can be found in `enum GlobalCapabilities` in [ever-block](https://github.com/ton-dev-dao/ton-dev-block/blob/master/src/config_params.rs) repo.
 Set capabilities store in 8th parameter of the global config of the blockchain. To get it you can use command:
 ```bash
 ton-dev-cli --json getconfig 8

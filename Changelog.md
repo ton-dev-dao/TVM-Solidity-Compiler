@@ -16,7 +16,7 @@ Now [format()](API.md#format) can take address of any type.
  * Fixed compilation failure on formatted output pattern. See [issues #166](https://github.com/ton-dev-dao/TVM-Solidity-Compiler/issues/166).
 
 Compiler features:
- * Supported [ABI 2.7](https://github.com/ton-dev-dao/ever-abi/blob/master/CHANGELOG.md#version-270)
+ * Supported [ABI 2.7](https://github.com/ton-dev-dao/ton-dev-abi/blob/main/CHANGELOG.md#version-270)
    * Supported [getters](API.md#getter).
    * Supported [address_std](API.md#address_std) type.
  * Supported encoding internal message to call constructor. See option 2 [abi.encodeIntMsg()](API.md#abiencodeintmsg).
@@ -103,11 +103,11 @@ Other changes:
 Update compiler frontend (from original version 0.8.17 to 0.8.24). Full changelog can be found [here](./compiler/Changelog.md).
 
 Breaking changes:
- * Supported [ABI 2.4](https://github.com/ton-dev-dao/ever-abi/blob/master/CHANGELOG.md#version-240).
+ * Supported [ABI 2.4](https://github.com/ton-dev-dao/ton-dev-abi/blob/main/CHANGELOG.md#version-240).
  * Deleted `tvm.insertPubkey()` function.
  * Deleted `address.makeAddrNone()` function. Use [address.addrNone](./API.md#addressaddrnone).
  * Default value for `address` type was `address(0)` but now it is [address.addrNone](./API.md#addressaddrnone).
- * `byteN` in `*abi.json` file marked as `fixedbytesN`. See [ABI.md](https://github.com/ton-dev-dao/ever-abi/blob/master/docs/ABI.md#fixedbytesn).
+ * `byteN` in `*abi.json` file marked as `fixedbytesN`. See [ABI.md](https://github.com/ton-dev-dao/ton-dev-abi/blob/main/docs/ABI.md#fixedbytesn).
  * [abi.encodeStateInit()](./API.md#abiencodestateinit), [abi.encodeData()](./API.md#abiencodedata) functions and [Deploy via new](./API.md#deploy-via-new) generate contract's data in the new format. To deploy old contracts (with version < 0.72.0) from new ones (with version >= 0.72.0) use [abi.encodeOldDataInit()](./API.md#abiencodeolddatainit).
  * [format()](API.md#format) no longer throws an exception if formatted value exceeds the specified width. E.g. `format("{:1d}", 10) == "10"` now is correct, no exception.
  * Functions and constructions previously working with `uint128` value, now using `varUint16`:
@@ -153,7 +153,7 @@ Other changes:
 
 ### 0.72.0 (2023-10-31)
 
-Use [sold](https://github.com/ton-dev-dao/TVM-Solidity-Compiler/tree/master/sold) to compile contracts. If you used `solc`+`tvm_linker`, then use `solc`+[asm](https://github.com/ton-dev-dao/ever-assembler). Generated `*.code` files have some another format.
+Use [sold](https://github.com/ton-dev-dao/TVM-Solidity-Compiler/tree/master/sold) to compile contracts. If you used `solc`+`tvm_linker`, then use `solc`+[asm](https://github.com/ton-dev-dao/ton-dev-assembler). Generated `*.code` files have some another format.
 
 Breaking changes:
  * The conversion for integer type is only allowed when there is at most one change in sign, width or type-category (`int`, `address`, `bytesNN`, etc.). To perform multiple changes, use multiple conversions. See [Solidity v0.8.0 Breaking Changes](https://docs.soliditylang.org/en/v0.8.17/080-breaking-changes.html#new-restrictions). For example, to convert `int8 x;` to `uint` you can use at least two ways: 1) `uint(uint8(x))`, 2) `uint(int(x))`. 
@@ -343,7 +343,7 @@ Compiler features:
 Fixed build [sold](https://github.com/ton-dev-dao/TVM-Solidity-Compiler/tree/master/sold) for Windows and macOS.
 
 Compiler features:
- * Supported [ABI v2.3](https://github.com/ton-dev-dao/ever-abi/blob/master/docs/ABI_2.3_spec.md).
+ * Supported [ABI v2.3](https://github.com/ton-dev-dao/ton-dev-abi/blob/main/docs/ABI_2.3_spec.md).
  * Supported try-catch (experimental feature).
  * Supported type `variant`.
 
