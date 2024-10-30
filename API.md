@@ -357,18 +357,11 @@ When deploying contracts, you should use the latest released version of Solidity
 
 ### Compiler version
 
-TVM Solidity compiler adds its current version to the generated code. This version can be obtained:
-
-1) using [tvm_linker](https://github.com/everx-labs/TVM-linker#2-decoding-of-boc-messages-prepared-externally) from a `*.tvc` file:
-
-    ```bash
-    tvm_linker decode --tvm <tvc-file>
-    ```
-
-2) using [ever-cli](https://github.com/everx-labs/ever-cli#48-decode-commands) from a `*.boc` file, a `*.tvc` file, or a network account:
+TVM Solidity compiler adds its current version to the generated code. This version can be obtained
+using [ton-dev-cli](https://github.com/ton-dev-dao/ton-dev-cli#48-decode-commands) from a `*.boc` file, a `*.tvc` file, or a network account:
 
 ```bash
-ever-cli decode tvc [--tvc] [--boc] <input>
+ton-dev-cli decode tvc [--tvc] [--boc] <input>
 ```
 
 ### TVM specific types
@@ -2516,7 +2509,7 @@ no effect.
 * `flag + 32` - means that the current account must be destroyed if its resulting balance is zero.
 For example, `flag: 128 + 32` is used to send all balance and destroy the contract.
 
-In order to clarify flags usage see [this sample](https://github.com/everx-labs/samples/blob/master/solidity/20_bomber.sol).
+In order to clarify flags usage see [this sample](https://github.com/ton-dev-dao/samples/blob/main/solidity/20_bomber.sol).
 
 ```TVMSolidity
 address dest = ...;
@@ -2540,7 +2533,7 @@ destination.transfer({value: 1 ever, bounce: false, stateInit: stateInit});
 
 See example of `address.transfer()` usage:
 
-* [giver](https://github.com/everx-labs/samples/blob/master/solidity/7_Giver.sol)
+* [giver](https://github.com/ton-dev-dao/samples/blob/main/solidity/7_Giver.sol)
 
 #### address_std
 
@@ -2679,8 +2672,8 @@ If you use mapping as an input or output param for public/external functions,
 
 See example of how to work with mappings:
 
-* [database](https://github.com/everx-labs/samples/blob/master/solidity/13_BankCollector.sol)
-* [client](https://github.com/everx-labs/samples/blob/master/solidity/13_BankCollectorClient.sol)
+* [database](https://github.com/ton-dev-dao/samples/blob/main/solidity/13_BankCollector.sol)
+* [client](https://github.com/ton-dev-dao/samples/blob/main/solidity/13_BankCollectorClient.sol)
 
 ##### Keyword `emptyMap`
 
@@ -3245,7 +3238,7 @@ Defines that code is compiled with special selector that is needed to upgrade Fu
 
 #### Decoding state variables
 
-You can decode state variables using ever-cli. See `ever-cli decode account --help`.
+You can decode state variables using ton-dev-cli. See `ton-dev-cli decode account --help`.
 
 See also: [abi.decodeData()](#abidecodedata).
 
@@ -3267,7 +3260,7 @@ contract MyContract {
 
 Static state variables are used in the contract initial state generation.
 Such variables can be set while deploying contract from contract
-(onchain) or by ever-cli (offchain). Example:
+(onchain) or by ton-dev-cli (offchain). Example:
 
 ```TVMSolidity
 contract C {
@@ -3335,9 +3328,9 @@ contract C {
 }
 ```
 
-Use `ever-cli run` to call getter function. Example: 
+Use `ton-dev-cli run` to call getter function. Example: 
 ```bash
-ever-cli -j run --abi test_getter_2.abi.json <contract-address> get_value '{"key": 10}'`
+ton-dev-cli -j run --abi test_getter_2.abi.json <contract-address> get_value '{"key": 10}'`
 ```
 
 #### receive
@@ -3477,7 +3470,7 @@ If the `onBounce` function throws an exception, then another bounced messages ar
 
 Example of how to use `onBounce` function for option 2:
 
-* [onBounceHandler](https://github.com/everx-labs/samples/blob/master/solidity/16_onBounceHandler.sol)
+* [onBounceHandler](https://github.com/ton-dev-dao/samples/blob/main/solidity/16_onBounceHandler.sol)
 
 Example of getting function ID if `CapBounceMsgBody` and `CapFullBodyInBounced` [capabilities](#tvm-capabilities) are set:
 
@@ -3525,8 +3518,8 @@ Function `onCodeUpgrade` had function id = 2 (for compiler <= 0.65.0). Now, it h
 
 See example of how to upgrade code of the contract:
 
-* [old contract](https://github.com/everx-labs/samples/blob/master/solidity/12_BadContract.sol)
-* [new contract](https://github.com/everx-labs/samples/blob/master/solidity/12_NewVersion.sol)
+* [old contract](https://github.com/ton-dev-dao/samples/blob/main/solidity/12_BadContract.sol)
+* [new contract](https://github.com/ton-dev-dao/samples/blob/main/solidity/12_NewVersion.sol)
 
 It's good to pass `TvmCell cell` to the public function that calls `onCodeUpgrade(TvmCell cell, ...)`
 function. `TvmCell cell` may contain some data that may be useful for the new contract.
@@ -3567,7 +3560,7 @@ NB: Do not use [tvm.commit()](#tvmcommit) or [tvm.accept()](#tvmaccept) in this 
 See also: [Contract execution](#contract-execution).
 See an example of how to define this function:
 
-* [Custom replay protection](https://github.com/everx-labs/samples/blob/master/solidity/14_CustomReplayProtection.sol)
+* [Custom replay protection](https://github.com/ton-dev-dao/samples/blob/main/solidity/14_CustomReplayProtection.sol)
 
 ### Function specifiers
 
@@ -3840,9 +3833,9 @@ contract Caller {
 
 See also:
 
-* Example of callback usage: [24_SquareProvider](https://github.com/everx-labs/samples/blob/master/solidity/24_SquareProvider.sol)
-* Example of callback usage: [4.1_CentralBank](https://github.com/everx-labs/samples/blob/master/solidity/4.1_CentralBank.sol)
-and [4.1_CurrencyExchange.sol](https://github.com/everx-labs/samples/blob/master/solidity/4.1_CurrencyExchange.sol)
+* Example of callback usage: [24_SquareProvider](https://github.com/ton-dev-dao/samples/blob/main/solidity/24_SquareProvider.sol)
+* Example of callback usage: [4.1_CentralBank](https://github.com/ton-dev-dao/samples/blob/main/solidity/4.1_CentralBank.sol)
+and [4.1_CurrencyExchange.sol](https://github.com/ton-dev-dao/samples/blob/main/solidity/4.1_CurrencyExchange.sol)
 * [return](#return)
 
 ### Delete variables
@@ -4035,7 +4028,7 @@ This action is required to process external messages that bring no value.
 
 See example of how to use this function:
 
-* [accumulator](https://github.com/everx-labs/samples/blob/master/solidity/1_Accumulator.sol)
+* [accumulator](https://github.com/ton-dev-dao/samples/blob/main/solidity/1_Accumulator.sol)
 
 ##### tvm.setGasLimit()
 
@@ -4207,8 +4200,8 @@ after the successful termination of the current run of the smart contract).
 
 See example of how to use this function:
 
-* [old contract](https://github.com/everx-labs/samples/blob/master/solidity/12_BadContract.sol)
-* [new contract](https://github.com/everx-labs/samples/blob/master/solidity/12_NewVersion.sol)
+* [old contract](https://github.com/ton-dev-dao/samples/blob/main/solidity/12_BadContract.sol)
+* [new contract](https://github.com/ton-dev-dao/samples/blob/main/solidity/12_NewVersion.sol)
 
 ##### tvm.configParam()
 
@@ -4286,7 +4279,7 @@ Example:
 tvm.rawReserve(1 ever, 4 + 8);
 ```
 
-See also: [23_rawReserve.sol](https://github.com/everx-labs/samples/blob/master/solidity/23_rawReserve.sol)
+See also: [23_rawReserve.sol](https://github.com/ton-dev-dao/samples/blob/main/solidity/23_rawReserve.sol)
 
 ##### tvm.initCodeHash()
 
@@ -4445,12 +4438,12 @@ onchain) and use `code` if you want to create account state in the `new` express
 Constructor function parameters don't influence the address. See
 [New contract address problem](#new-contract-address-problem).
 
-[Step-by-step description how to deploy contracts from the contract here](https://github.com/everx-labs/samples/blob/master/solidity/17_ContractProducer.md).  
+[Step-by-step description how to deploy contracts from the contract here](https://github.com/ton-dev-dao/samples/blob/main/solidity/17_ContractProducer.md).  
 
 Examples:
 
-* [WalletProducer](https://github.com/everx-labs/samples/blob/master/solidity/17_ContractProducer.sol).
-* [SelfDeployer](https://github.com/everx-labs/samples/blob/master/solidity/21_self_deploy.sol).
+* [WalletProducer](https://github.com/ton-dev-dao/samples/blob/main/solidity/17_ContractProducer.sol).
+* [SelfDeployer](https://github.com/ton-dev-dao/samples/blob/main/solidity/21_self_deploy.sol).
 
 ##### `stateInit` option usage
 
@@ -4528,20 +4521,20 @@ address newWallet = new SimpleWallet{
 You can also deploy the contract via [\<address\>.transfer()](#addresstransfer).
 Just set the option `stateInit`.
 
-* [Example of usage](https://github.com/everx-labs/samples/blob/master/solidity/11_ContractDeployer.sol)
-* [Step-by-step description how to deploy contracts from the contract here](https://github.com/everx-labs/samples/blob/master/solidity/17_ContractProducer.md).
+* [Example of usage](https://github.com/ton-dev-dao/samples/blob/main/solidity/11_ContractDeployer.sol)
+* [Step-by-step description how to deploy contracts from the contract here](https://github.com/ton-dev-dao/samples/blob/main/solidity/17_ContractProducer.md).
 
 ##### Deploy the contract with no constructor
 
 If the contract does not have constructor explicitly and does not have state variables with initialisation, then in `*.abi.json` file there is no `constructor` function and no `_constructorFlag` field.
 
-For example: [1_Accumulator_no_ctor.sol](https://github.com/everx-labs/samples/blob/master/solidity/1_Accumulator_no_ctor.sol) and [1_Accumulator_no_ctor.abi.json](https://github.com/everx-labs/samples/blob/master/solidity/1_Accumulator_no_ctor.abi.json). To deploy this contractor by external message with help `ever-cli`, use parameter `method`  for `deploy` and `deployx` commands:
+For example: [1_Accumulator_no_ctor.sol](https://github.com/ton-dev-dao/samples/blob/main/solidity/1_Accumulator_no_ctor.sol) and [1_Accumulator_no_ctor.abi.json](https://github.com/ton-dev-dao/samples/blob/main/solidity/1_Accumulator_no_ctor.abi.json). To deploy this contractor by external message with help `ton-dev-cli`, use parameter `method`  for `deploy` and `deployx` commands:
 
 ```bash
-ever-cli deploy --method add '{"delta": 123}' ...
+ton-dev-cli deploy --method add '{"delta": 123}' ...
 ```
 
-To deploy a contractor by internal message, use option `stateInit` for [External function calls](#external-function-calls). See `deployNoConstructor` and `deployNoConstructor2` functions [11_ContractDeployer.sol](https://github.com/everx-labs/samples/blob/master/solidity/11_ContractDeployer.sol) as samples of deploying [11_Waller_no_constructor.sol](https://github.com/everx-labs/samples/blob/master/solidity/11_Waller_no_constructor.sol). 
+To deploy a contractor by internal message, use option `stateInit` for [External function calls](#external-function-calls). See `deployNoConstructor` and `deployNoConstructor2` functions [11_ContractDeployer.sol](https://github.com/ton-dev-dao/samples/blob/main/solidity/11_ContractDeployer.sol) as samples of deploying [11_Waller_no_constructor.sol](https://github.com/ton-dev-dao/samples/blob/main/solidity/11_Waller_no_constructor.sol). 
 
 ##### New contract address problem
 
@@ -4556,18 +4549,18 @@ Let's consider how to protect against this problem:
 We must Check if we didn't forget to set the public key in the contract and the
 inbound message is signed by that key. If hacker doesn't have your private
 key, then he can't sign message to call the constructor.
-See [constructor of WalletProducer](https://github.com/everx-labs/samples/blob/master/solidity/17_ContractProducer.sol).
+See [constructor of WalletProducer](https://github.com/ton-dev-dao/samples/blob/main/solidity/17_ContractProducer.sol).
 2. Constructor is called by internal message.
 We should define static variable in the new contract that will contain
 address of the creator. Address of the creator will be a part of the `stateInit`.
 And in the constructor we must check address of the message sender.
-See [function `deployWallet` how to deploy contract](https://github.com/everx-labs/samples/blob/master/solidity/17_ContractProducer.sol).  
-See [constructor of SimpleWallet](https://github.com/everx-labs/samples/blob/master/solidity/17_SimpleWallet.sol).  
+See [function `deployWallet` how to deploy contract](https://github.com/ton-dev-dao/samples/blob/main/solidity/17_ContractProducer.sol).  
+See [constructor of SimpleWallet](https://github.com/ton-dev-dao/samples/blob/main/solidity/17_SimpleWallet.sol).  
 If some contract should deploy plenty of contracts (with some contract's
 public key), then it's a good idea to declare static variable in the deployed
 contract. This variable can contain some sequence number. It will allow
 each new contact to have unique `stateInit`.
-See [SimpleWallet](https://github.com/everx-labs/samples/blob/master/solidity/17_SimpleWallet.sol).  
+See [SimpleWallet](https://github.com/ton-dev-dao/samples/blob/main/solidity/17_SimpleWallet.sol).  
 **Note**: contract's public key (`tvm.pubkey()`) is a part of `stateInit`.
 
 ##### Misc functions from `tvm`
@@ -4580,7 +4573,7 @@ tvm.code() returns (TvmCell);
 
 Returns contract's code. [Capabilities](#tvm-capabilities) required: `CapMycode`.
 
-See [SelfDeployer](https://github.com/everx-labs/samples/blob/master/solidity/21_self_deploy.sol).
+See [SelfDeployer](https://github.com/ton-dev-dao/samples/blob/main/solidity/21_self_deploy.sol).
 
 ##### tvm.pubkey()
 
@@ -4610,8 +4603,8 @@ after termination of the current run of the smart contract.
 
 See example of how to use this function:
 
-* [old contract](https://github.com/everx-labs/samples/blob/master/solidity/12_BadContract.sol)
-* [new contract](https://github.com/everx-labs/samples/blob/master/solidity/12_NewVersion.sol)
+* [old contract](https://github.com/ton-dev-dao/samples/blob/main/solidity/12_BadContract.sol)
+* [new contract](https://github.com/ton-dev-dao/samples/blob/main/solidity/12_NewVersion.sol)
 
 ##### tvm.resetStorage()
 
@@ -5555,7 +5548,7 @@ uint16 dataDepth = data.depth();
 uint256 hash = abi.stateInitHash(codeHash, dataHash, codeDepth, dataDepth);
 ```
 
-See also [internal doc](https://github.com/everx-labs/TVM-Solidity-Compiler/blob/master/docs/internal/stateInit_hash.md) to read more about this
+See also [internal doc](https://github.com/ton-dev-dao/TVM-Solidity-Compiler/blob/main/docs/internal/stateInit_hash.md) to read more about this
 function mechanics.
 
 ##### abi.encodeBody()
@@ -5615,7 +5608,7 @@ Loads parameters of the function or constructor (if contract type is provided). 
 
 See example of how to use **onBounce** function:
 
-* [onBounceHandler](https://github.com/everx-labs/samples/blob/master/solidity/16_onBounceHandler.sol)
+* [onBounceHandler](https://github.com/ton-dev-dao/samples/blob/main/solidity/16_onBounceHandler.sol)
 
 ##### abi.codeSalt()
 
@@ -5672,7 +5665,7 @@ contract MyContract {
 
 See example of how to use this function:
 
-* [onBounceHandler](https://github.com/everx-labs/samples/blob/master/solidity/16_onBounceHandler.sol)
+* [onBounceHandler](https://github.com/ton-dev-dao/samples/blob/main/solidity/16_onBounceHandler.sol)
 
 ##### abi.encodeIntMsg()
 
@@ -5710,7 +5703,7 @@ described.
 
 See also:
 
-* sample [22_sender.sol](https://github.com/everx-labs/samples/blob/master/solidity/22_sender.sol)
+* sample [22_sender.sol](https://github.com/ton-dev-dao/samples/blob/main/solidity/22_sender.sol)
 * [abi.encodeBody()](#abiencodebody)
 
 ### **gosh** namespace
@@ -5806,7 +5799,7 @@ of the current smart contract and destroys the current account.
 
 See example of how to use the `selfdestruct` function:
 
-* [Kamikaze](https://github.com/everx-labs/samples/blob/master/solidity/8_Kamikaze.sol)
+* [Kamikaze](https://github.com/ton-dev-dao/samples/blob/main/solidity/8_Kamikaze.sol)
 
 #### gasToValue()
 
@@ -5852,10 +5845,10 @@ Returns gas consumed by VM so far (including this instruction). Required: `--tvm
 ### TVM capabilities
 
 Rust implementation of TVM has capabilities. Capabilities are flags that can be set to turn on 
-some features or behavior of TVM. Full list of capabilities can be found in `enum GlobalCapabilities` in [ever-block](https://github.com/everx-labs/ever-block/blob/master/src/config_params.rs) repo.
+some features or behavior of TVM. Full list of capabilities can be found in `enum GlobalCapabilities` in [ever-block](https://github.com/ton-dev-dao/ever-block/blob/master/src/config_params.rs) repo.
 Set capabilities store in 8th parameter of the global config of the blockchain. To get it you can use command:
 ```bash
-ever-cli --json getconfig 8
+ton-dev-cli --json getconfig 8
 ```
 
 ### TVM exception codes

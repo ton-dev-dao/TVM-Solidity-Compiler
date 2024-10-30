@@ -179,7 +179,7 @@ fn test_remapping() -> Status {
         .arg("tests/ImportRemote.sol")
         .arg("--output-dir")
         .arg("tests")
-        .arg("github.com/everx-labs/debots/=tests/remote/")
+        .arg("github.com/ton-dev-dao/debots/=tests/remote/")
         .assert()
         .success();
 
