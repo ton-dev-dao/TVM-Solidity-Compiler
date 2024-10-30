@@ -13,6 +13,10 @@ Port of the Solidity smart-contract [compiler](https://github.com/ethereum/solid
 
 [API documentation is here](https://github.com/ton-dev-dao/TVM-Solidity-Compiler/blob/main/API.md)
 
+## Code samples
+
+See [counter](https://github.com/ton-dev-dao/samples/tree/main/counter). It's an example of using TVM Solidity compiler and [blueprint](https://github.com/ton-org/blueprint). 
+
 ## Build and Install
 
 ### Sold driver
@@ -54,7 +58,6 @@ cmake --build . --config Release -- /m
 
  * [Assembler and disassembler](https://github.com/ton-dev-dao/ton-dev-assembler)
  * [Code samples](https://github.com/ton-dev-dao/samples/tree/main) in TVM Solidity
- * [Changelog](./Changelog.md)
 
 ## License
 [GNU GENERAL PUBLIC LICENSE Version 3](./LICENSE)
